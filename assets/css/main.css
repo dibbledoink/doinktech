@@ -33,7 +33,9 @@ body {
 }
 
 ol, ul {
-	list-style: none;
+	display: flex;
+    list-style: none;
+    justify-content:center;
 }
 
 blockquote, q {
