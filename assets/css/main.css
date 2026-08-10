@@ -3132,6 +3132,7 @@ input, select, textarea {
 		}
 
 /* Table — Notion-like compact, wide description column, responsive */
+/* Notion-like table tuned to site theme (purple/pink) */
 .table-wrapper {
   width: 100%;
   overflow-x: auto;
