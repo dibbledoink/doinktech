@@ -4033,3 +4033,52 @@ input, select, textarea {
     margin-left: 0;
   }
 }
+/* ===== Scoped table bleed only for section #one =====
+   Keeps your table visually wider without affecting other sections. */
+#one > .table-wrapper {
+  width: calc(100% + 3em);
+  margin-left: -1.5em;
+  margin-right: -1.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  box-sizing: border-box;
+}
+
+/* Ensure the table in #one fills that wrapper */
+#one .table-wrapper table,
+#one .table-wrapper table.notion-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* ===== Restore normal page flow for everything else =====
+   This pushes the main content to the right of the fixed sidebar.
+   It does not change the sidebar itself. Tweak --site-sidebar-width if needed. */
+@media screen and (min-width: 980px) {
+  :root { --site-sidebar-width: 16rem; } /* adjust if your sidebar is wider/narrower */
+
+  /* Restore the content offset beside the fixed sidebar */
+  #wrapper {
+    margin-left: var(--site-sidebar-width);
+    box-sizing: border-box;
+  }
+
+  /* Make sure inner sections use normal flow and width */
+  #wrapper > section,
+  #wrapper > section > .inner,
+  #wrapper > .inner {
+    box-sizing: border-box;
+    width: auto;
+  }
+}
+
+/* Mobile: remove the bleed and offset so small screens behave normally */
+@media screen and (max-width: 979px) {
+  #one > .table-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #wrapper { margin-left: 0; }
+}
