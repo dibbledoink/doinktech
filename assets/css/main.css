@@ -3131,73 +3131,75 @@ input, select, textarea {
 
 		}
 
-/* Table */
+/* Table — Notion-like compact, wide description column, responsive */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;                 /* allow horizontal scrolling on small screens */
+  -webkit-overflow-scrolling: touch;
+  margin: 0 auto;
+  padding: 0.25rem 0;               /* small breathing room */
+}
 
-	.table-wrapper {
-		-webkit-overflow-scrolling: touch;
-		overflow-x: auto;
-	}
+/* opt-in class so we don't accidentally change other tables */
+.table-wrapper table.notion-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;              /* use col widths from colgroup */
+  font-size: 13px;                  /* compact readable text */
+  color: #222;
+  background: #fff;
+}
 
-	table {
-		margin: 0 0 2em 0;
-		width: 100%;
-	}
+/* columns and spacing */
+.table-wrapper table.notion-table col.name  { width: 24%; }
+.table-wrapper table.notion-table col.link  { width: 12%; }
+.table-wrapper table.notion-table col.desc  { width: 46%; }
+.table-wrapper table.notion-table col.price { width: 18%; }
 
-		table tbody tr {
-			border: solid 1px rgba(255, 255, 255, 0.15);
-			border-left: 0;
-			border-right: 0;
-		}
+.table-wrapper table.notion-table th,
+.table-wrapper table.notion-table td {
+  padding: 10px 12px;               /* wider cells for clarity */
+  vertical-align: top;
+  word-wrap: break-word;
+  white-space: normal;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
 
-			table tbody tr:nth-child(2n + 1) {
-				background-color: rgba(255, 255, 255, 0.05);
-			}
+/* header style to mimic Notion: subtle, rounded top corners */
+.table-wrapper table.notion-table thead th {
+  font-weight: 600;
+  font-size: 13px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
+  color: #111;
+  text-align: left;
+  padding: 12px 14px;
+}
 
-		table td {
-			padding: 0.75em 0.75em;
-		}
+/* row hover and subtle separation */
+.table-wrapper table.notion-table tbody tr:hover {
+  background: rgba(0,0,0,0.02);
+}
 
-		table th {
-			color: #ffffff;
-			font-size: 1em;
-			font-weight: bold;
-			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
-		}
+/* link cell center, price right align */
+.table-wrapper table.notion-table td.link-cell { text-align: center; }
+.table-wrapper table.notion-table td.price-cell { text-align: right; color: #0a0a0a; font-weight: 500; }
 
-		table thead {
-			border-bottom: solid 2px rgba(255, 255, 255, 0.15);
-		}
+/* make anchor links tidy */
+.table-wrapper table.notion-table a {
+  color: #1769ff;
+  text-decoration: none;
+}
+.table-wrapper table.notion-table a:hover { text-decoration: underline; }
 
-		table tfoot {
-			border-top: solid 2px rgba(255, 255, 255, 0.15);
-		}
-
-		table.alt {
-			border-collapse: separate;
-		}
-
-			table.alt tbody tr td {
-				border: solid 1px rgba(255, 255, 255, 0.15);
-				border-left-width: 0;
-				border-top-width: 0;
-			}
-
-				table.alt tbody tr td:first-child {
-					border-left-width: 1px;
-				}
-
-			table.alt tbody tr:first-child td {
-				border-top-width: 1px;
-			}
-
-			table.alt thead {
-				border-bottom: 0;
-			}
-
-			table.alt tfoot {
-				border-top: 0;
-			}
+/* mobile tweaks: reduce padding and allow horizontal scroll instead of squashing */
+@media (max-width: 640px) {
+  .table-wrapper table.notion-table th,
+  .table-wrapper table.notion-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
 
 /* Wrapper */
 
