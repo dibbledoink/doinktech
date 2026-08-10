@@ -3931,3 +3931,54 @@ input, select, textarea {
 			}
 
 		}
+/* ===== Confine the table "bleed" to section #one only =====
+   This lets section #one visually expand while not affecting other sections. */
+#one > .table-wrapper {
+  /* only let the table in section one bleed a little, keep its content padded */
+  width: calc(100% + 3em);    /* expands to cover parent padding */
+  margin-left: -1.5em;
+  margin-right: -1.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  box-sizing: border-box;
+}
+
+/* Ensure the table inside #one fills its container predictably */
+#one .table-wrapper table.notion-table,
+#one .table-wrapper table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* ===== Restore the normal content flow for the rest of the site =====
+   This only moves the wrapper content back to its intended offset beside the sidebar.
+   It does NOT change the sidebar itself. Adjust --site-content-offset if your sidebar uses a different width. */
+@media screen and (min-width: 980px) {
+  :root { --site-content-offset: 16rem; } /* tweak this if your site uses a different sidebar width */
+
+  /* Only set the wrapper's left margin if it is currently zero or incorrect.
+     This places the main content area to the right of the fixed sidebar. */
+  #wrapper {
+    margin-left: var(--site-content-offset);
+    box-sizing: border-box;
+  }
+
+  /* Make sure the regular .inner containers behave as expected */
+  #wrapper > section > .inner,
+  #wrapper > .inner {
+    box-sizing: border-box;
+  }
+}
+
+/* On small screens we want everything to be normal (no bleed/margin adjustments) */
+@media screen and (max-width: 979px) {
+  #one > .table-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #wrapper {
+    margin-left: 0;
+  }
+}
