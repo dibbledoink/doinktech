@@ -21,9 +21,9 @@
 }
 
 /* Target tables inside the #one section specifically so the changes are limited to the first page tables.
-   Use width:auto so columns shrink to fit their content. Keep max-width to keep them responsive. */
+   Make these tables use the full available width so they match sections #two and #three. */
 #one .table-wrapper table {
-	width: auto;
+	width: 100%;
 	table-layout: auto;
 	max-width: 100%;
 }
