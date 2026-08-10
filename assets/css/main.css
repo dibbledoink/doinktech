@@ -3373,6 +3373,19 @@ input, select, textarea {
 		body.is-preload .wrapper.fade > .inner {
 			opacity: 0;
 		}
+/* ensure wrapper/table fill the section */
+#one > .table-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1.5em; /* keep some horizontal breathing room inside the full-width section */
+}
+
+/* make the table itself fill its container */
+.table-wrapper table.notion-table,
+.table-wrapper table {
+  width: 100%;
+  table-layout: fixed; /* keep columns predictable */
+}
 
 /* Header */
 
