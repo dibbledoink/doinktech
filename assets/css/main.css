@@ -3198,7 +3198,91 @@ input, select, textarea {
 			table.alt tfoot {
 				border-top: 0;
 			}
+/* Table styles — Hyperspace-themed */
+.table-wrapper {
+  margin: 1.5em 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem;
+}
 
+/* Outer table card */
+.table-wrapper table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(255,255,255,0.02);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  min-width: 360px;
+}
+
+/* Header */
+.table-wrapper thead th {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(90deg, rgba(94,66,166,0.95), rgba(183,78,145,0.95));
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+/* Body cells */
+.table-wrapper tbody td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.92);
+  background: transparent;
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+
+/* Zebra rows */
+.table-wrapper tbody tr:nth-child(even) td {
+  background: rgba(255,255,255,0.015);
+}
+
+/* Hover highlight */
+.table-wrapper tbody tr:hover td {
+  background: rgba(255,255,255,0.03);
+  color: #ffffff;
+}
+
+/* Footer / totals */
+.table-wrapper tfoot td {
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.02);
+}
+
+/* Alternate table variant */
+.table-wrapper table.alt thead th {
+  background-image: linear-gradient(90deg, rgba(94,66,166,0.85), rgba(183,78,145,0.85));
+}
+
+/* Right-align price column (either add class="price" to the TH/TD or use last-child) */
+.table-wrapper th.price,
+.table-wrapper td.price,
+.table-wrapper thead th:last-child,
+.table-wrapper tbody td:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 736px) {
+  .table-wrapper table thead th,
+  .table-wrapper table tbody td {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .table-wrapper { margin: 1em 0; }
+}
 /* Wrapper */
 
 	.wrapper {
