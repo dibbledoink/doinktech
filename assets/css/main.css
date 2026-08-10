@@ -33,7 +33,7 @@ body {
 }
 
 ol, ul {
-    list-style: none;
+	list-style: none;
 }
 
 blockquote, q {
@@ -3131,84 +3131,73 @@ input, select, textarea {
 
 		}
 
-/* Table — Notion-like compact, wide description column, responsive */
-/* Notion-like table tuned to site theme (purple/pink) */
-.table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin: 0 auto;
-  padding: 0.25rem 0;
-}
+/* Table */
 
-/* Opt-in class so other tables aren't affected */
-.table-wrapper table.notion-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  table-layout: fixed;
-  font-size: 13px;
-  color: rgba(255,255,255,0.92);
-  background: rgba(255,255,255,0.01); /* subtle panel on dark page */
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.35) inset;
-}
+	.table-wrapper {
+		-webkit-overflow-scrolling: touch;
+		overflow-x: auto;
+	}
 
-/* Columns (now with Notes) */
-.table-wrapper table.notion-table col.name   { width: 20%; }
-.table-wrapper table.notion-table col.link   { width: 10%; }
-.table-wrapper table.notion-table col.desc   { width: 40%; }
-.table-wrapper table.notion-table col.notes  { width: 20%; }
-.table-wrapper table.notion-table col.price  { width: 10%; }
+	table {
+		margin: 0 0 2em 0;
+		width: 100%;
+	}
 
-/* Cells */
-.table-wrapper table.notion-table th,
-.table-wrapper table.notion-table td {
-  padding: 10px 12px;
-  vertical-align: top;
-  word-wrap: break-word;
-  white-space: normal;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
+		table tbody tr {
+			border: solid 1px rgba(255, 255, 255, 0.15);
+			border-left: 0;
+			border-right: 0;
+		}
 
-/* Header: use site gradient */
-.table-wrapper table.notion-table thead th {
-  font-weight: 600;
-  font-size: 13px;
-  color: #ffffff;
-  background-image: linear-gradient(180deg, #5e42a6 0%, #b74e91 100%);
-  text-align: left;
-  padding: 12px 14px;
-}
+			table tbody tr:nth-child(2n + 1) {
+				background-color: rgba(255, 255, 255, 0.05);
+			}
 
-/* Subtle zebra / hover */
-.table-wrapper table.notion-table tbody tr:nth-child(even) {
-  background: rgba(255,255,255,0.01);
-}
-.table-wrapper table.notion-table tbody tr:hover {
-  background: rgba(255,255,255,0.03);
-}
+		table td {
+			padding: 0.75em 0.75em;
+		}
 
-/* Alignment helpers */
-.table-wrapper table.notion-table td.link-cell  { text-align: center; }
-.table-wrapper table.notion-table td.price-cell { text-align: right; color: rgba(255,255,255,0.95); font-weight: 500; }
+		table th {
+			color: #ffffff;
+			font-size: 1em;
+			font-weight: bold;
+			padding: 0 0.75em 0.75em 0.75em;
+			text-align: left;
+		}
 
-/* Link styles tuned to theme */
-.table-wrapper table.notion-table a {
-  color: #ffd5f0; /* soft contrast on purple background */
-  text-decoration: none;
-}
-.table-wrapper table.notion-table a:hover { text-decoration: underline; color: #ffffff; }
+		table thead {
+			border-bottom: solid 2px rgba(255, 255, 255, 0.15);
+		}
 
-/* Mobile adjustments */
-@media (max-width: 640px) {
-  .table-wrapper table.notion-table th,
-  .table-wrapper table.notion-table td {
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-}
+		table tfoot {
+			border-top: solid 2px rgba(255, 255, 255, 0.15);
+		}
+
+		table.alt {
+			border-collapse: separate;
+		}
+
+			table.alt tbody tr td {
+				border: solid 1px rgba(255, 255, 255, 0.15);
+				border-left-width: 0;
+				border-top-width: 0;
+			}
+
+				table.alt tbody tr td:first-child {
+					border-left-width: 1px;
+				}
+
+			table.alt tbody tr:first-child td {
+				border-top-width: 1px;
+			}
+
+			table.alt thead {
+				border-bottom: 0;
+			}
+
+			table.alt tfoot {
+				border-top: 0;
+			}
 
 /* Wrapper */
 
@@ -3373,19 +3362,6 @@ input, select, textarea {
 		body.is-preload .wrapper.fade > .inner {
 			opacity: 0;
 		}
-/* ensure wrapper/table fill the section */
-#one > .table-wrapper {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 1.5em; /* keep some horizontal breathing room inside the full-width section */
-}
-
-/* make the table itself fill its container */
-.table-wrapper table.notion-table,
-.table-wrapper table {
-  width: 100%;
-  table-layout: fixed; /* keep columns predictable */
-}
 
 /* Header */
 
@@ -3898,7 +3874,7 @@ input, select, textarea {
 
 	#intro {
 		background-attachment: fixed;
-		
+		background-image: url("images/intro.svg");
 		background-position: top right;
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
@@ -3931,154 +3907,3 @@ input, select, textarea {
 			}
 
 		}
-/* ===== Confine the table "bleed" to section #one only =====
-   This lets section #one visually expand while not affecting other sections. */
-#one > .table-wrapper {
-  /* only let the table in section one bleed a little, keep its content padded */
-  width: calc(100% + 3em);    /* expands to cover parent padding */
-  margin-left: -1.5em;
-  margin-right: -1.5em;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  box-sizing: border-box;
-}
-
-/* Ensure the table inside #one fills its container predictably */
-#one .table-wrapper table.notion-table,
-#one .table-wrapper table {
-  width: 100%;
-  table-layout: fixed;
-}
-
-/* ===== Restore the normal content flow for the rest of the site =====
-   This only moves the wrapper content back to its intended offset beside the sidebar.
-   It does NOT change the sidebar itself. Adjust --site-content-offset if your sidebar uses a different width. */
-@media screen and (min-width: 980px) {
-  :root { --site-content-offset: 16rem; } /* tweak this if your site uses a different sidebar width */
-
-  /* Only set the wrapper's left margin if it is currently zero or incorrect.
-     This places the main content area to the right of the fixed sidebar. */
-  #wrapper {
-    margin-left: var(--site-content-offset);
-    box-sizing: border-box;
-  }
-
-  /* Make sure the regular .inner containers behave as expected */
-  #wrapper > section > .inner,
-  #wrapper > .inner {
-    box-sizing: border-box;
-  }
-}
-
-/* On small screens we want everything to be normal (no bleed/margin adjustments) */
-@media screen and (max-width: 979px) {
-  #one > .table-wrapper {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  #wrapper {
-    margin-left: 0;
-  }
-}
-/* ===== Confine the table "bleed" to section #one only =====
-   This lets section #one visually expand while not affecting other sections. */
-#one > .table-wrapper {
-  /* only let the table in section one bleed a little, keep its content padded */
-  width: calc(100% + 3em);    /* expands to cover parent padding */
-  margin-left: -1.5em;
-  margin-right: -1.5em;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  box-sizing: border-box;
-}
-
-/* Ensure the table inside #one fills its container predictably */
-#one .table-wrapper table.notion-table,
-#one .table-wrapper table {
-  width: 100%;
-  table-layout: fixed;
-}
-
-/* ===== Restore the normal content flow for the rest of the site =====
-   This only moves the wrapper content back to its intended offset beside the sidebar.
-   It does NOT change the sidebar itself. Adjust --site-content-offset if your sidebar uses a different width. */
-@media screen and (min-width: 980px) {
-  :root { --site-content-offset: 16rem; } /* tweak this if your site uses a different sidebar width */
-
-  /* Only set the wrapper's left margin if it is currently zero or incorrect.
-     This places the main content area to the right of the fixed sidebar. */
-  #wrapper {
-    margin-left: var(--site-content-offset);
-    box-sizing: border-box;
-  }
-
-  /* Make sure the regular .inner containers behave as expected */
-  #wrapper > section > .inner,
-  #wrapper > .inner {
-    box-sizing: border-box;
-  }
-}
-
-/* On small screens we want everything to be normal (no bleed/margin adjustments) */
-@media screen and (max-width: 979px) {
-  #one > .table-wrapper {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  #wrapper {
-    margin-left: 0;
-  }
-}
-/* ===== Scoped table bleed only for section #one =====
-   Keeps your table visually wider without affecting other sections. */
-#one > .table-wrapper {
-  width: calc(100% + 3em);
-  margin-left: -1.5em;
-  margin-right: -1.5em;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  box-sizing: border-box;
-}
-
-/* Ensure the table in #one fills that wrapper */
-#one .table-wrapper table,
-#one .table-wrapper table.notion-table {
-  width: 100%;
-  table-layout: fixed;
-}
-
-/* ===== Restore normal page flow for everything else =====
-   This pushes the main content to the right of the fixed sidebar.
-   It does not change the sidebar itself. Tweak --site-sidebar-width if needed. */
-@media screen and (min-width: 980px) {
-  :root { --site-sidebar-width: 16rem; } /* adjust if your sidebar is wider/narrower */
-
-  /* Restore the content offset beside the fixed sidebar */
-  #wrapper {
-    margin-left: var(--site-sidebar-width);
-    box-sizing: border-box;
-  }
-
-  /* Make sure inner sections use normal flow and width */
-  #wrapper > section,
-  #wrapper > section > .inner,
-  #wrapper > .inner {
-    box-sizing: border-box;
-    width: auto;
-  }
-}
-
-/* Mobile: remove the bleed and offset so small screens behave normally */
-@media screen and (max-width: 979px) {
-  #one > .table-wrapper {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  #wrapper { margin-left: 0; }
-}
