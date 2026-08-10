@@ -1,0 +1,21 @@
+/* assets/css/intro-geometry.css
+   Places the SVG behind the intro content, subtle and non-interactive. */
+#intro { position: relative; overflow: visible; }
+#intro .inner { position: relative; z-index: 1; }
+
+.intro-geometry {
+  position: absolute;
+  inset: 0;                /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: url("../images/intro-geometry.svg") center center / cover no-repeat;
+  opacity: 0.10;          /* tweak this to make it more/less visible */
+  mix-blend-mode: screen; /* optional: softer blend against dark/light backgrounds */
+  transform: translateY(-4%) scale(1.05); /* slight offset/scale for a natural feel */
+}
+
+@media (max-width: 640px) {
+  .intro-geometry { opacity: 0.06; transform: translateY(-2%) scale(1.02); }
+}
