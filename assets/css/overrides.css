@@ -2,8 +2,9 @@
    Styles to give section #two a distinct but matching accent color.
 */
 
-/* Section two accent - matches site's purple/pink gradient theme */
-section#two.wrapper {
+/* Section two & four accent - matches site's purple/pink gradient theme */
+section#two.wrapper,
+section#four.wrapper {
   background-image: linear-gradient(135deg, rgba(74,45,122,0.95) 0%, rgba(183,78,145,0.95) 100%);
   color: rgba(255,255,255,0.95);
 }
@@ -17,18 +18,29 @@ section#two.wrapper h5,
 section#two.wrapper h6,
 section#two.wrapper p,
 section#two.wrapper td,
-section#two.wrapper th {
+section#two.wrapper th,
+section#four.wrapper h1,
+section#four.wrapper h2,
+section#four.wrapper h3,
+section#four.wrapper h4,
+section#four.wrapper h5,
+section#four.wrapper h6,
+section#four.wrapper p,
+section#four.wrapper td,
+section#four.wrapper th {
   color: #ffffff;
 }
 
 /* Slightly soften the table background so it reads well on the gradient */
-section#two .table-wrapper {
+section#two .table-wrapper,
+section#four .table-wrapper {
   background: rgba(255,255,255,0.03);
   border-radius: 4px;
   padding: 0.5em;
 }
 
-/* Tweak link underline color inside section two for visibility */
-section#two a {
+/* Tweak link underline color inside section two and four for visibility */
+section#two a,
+section#four a {
   border-bottom-color: rgba(255,255,255,0.45);
 }
